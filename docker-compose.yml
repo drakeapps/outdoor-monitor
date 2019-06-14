@@ -1,0 +1,17 @@
+version: '2'
+volumes:
+    sense-data:
+services:
+  influxdb:
+    restart: always
+    build: ./influxdb
+    ports:
+      - "9898:8096"
+    volumes:
+      - 'sense-data:/data'
+  sensor:
+    build: ./soil
+    privileged: true
+    restart: always
+    depends_on:
+     - influxdb
