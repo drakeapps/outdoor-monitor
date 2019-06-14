@@ -36,7 +36,7 @@ while True:
 			}
         }
     ]
-	remote_influx_client.write_points(measurement)
+    remote_influx_client.write_points(measurement)
 
 
     print("temp: " + str(temp) + "  moisture: " + str(touch))
